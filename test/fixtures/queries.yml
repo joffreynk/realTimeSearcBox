@@ -3,7 +3,9 @@
 one:
   query: MyString
   times: 1
+  user: one
 
 two:
   query: MyString
   times: 1
+  user: two
