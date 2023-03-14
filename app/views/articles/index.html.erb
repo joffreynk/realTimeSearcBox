@@ -1,4 +1,9 @@
-<p style="color: green"><%= notice %></p>
+<% if user_signed_in? %>
+<div class="nav-item">
+
+<%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+
+</div>
 
 <h1>articles</h1>
 <%= form_with(url: articles_path, method: "GET", data: { controller: "search", turbo_frame: "articles", turbo_action: "advance" }) do |form| %>
@@ -8,3 +13,12 @@
 
 <!-- Rendering the new partial here -->
 <%= render "articles", articles: @articles %>
+
+<% else %>
+<div class="nav-item">
+    <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
+</div>
+<div class="nav-item">
+    <%= link_to 'Register', new_user_registration_path, class: 'nav-link' %>
+</div>
+<% end %>

@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   def index
     if params[:query].present?
       createSearch(params[:query.downcase].strip)
+
       @articles = Article.where("LOWER(title) like  ?", "%#{params[:query.downcase].strip}%")
     else
       @articles = Article.all
