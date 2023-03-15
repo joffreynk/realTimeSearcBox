@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :turbo_frame_request_variant
+
   private
 
   def turbo_frame_request_variant

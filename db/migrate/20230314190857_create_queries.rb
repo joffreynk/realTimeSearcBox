@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class CreateQueries < ActiveRecord::Migration[7.0]
   def change
     create_table :queries do |t|
-      t.string :query, null:false
+      t.string :query, null: false
       t.integer :times
       t.references :user, null: false, foreign_key: true
 
