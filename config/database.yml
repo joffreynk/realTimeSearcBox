@@ -19,4 +19,4 @@ production:
   url: <%= ENV['DATABASE_URL']%>
   database: search_engine_production
   username: search_engine
-  password: <%= ENV['auknpbIO92hxWdPxZHqLY5KGKgHmtnAU'] %>
+  password: <%= ENV['YNRBp2KtUoe3TLZsAISLmPjH7pq0bMti'] %>
