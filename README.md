@@ -43,13 +43,13 @@ after login you are indicated on Ui where you can enter query keyword:
 
 having article title: ```What is a good car?```
 
-if you type ```what``` it saves it 
+if you type ```what``` it saves it.
 
-when you continue and type ```what is a good``` it replaces the first one with the last searched
+when you continue typing ```what is a good``` it replaces the first one with the last searched
 
-if you type for the fird time ```what is a```. It will will save bcause the algoritm will think that youare rubbing a keyword which you already have. but if the last searched key was different it will save bcause the algoritm will thinking you are trying another search.
+if you type for the third time ```what is a```. It won't save it  bcause the algoritm will think that you are rubbing a keyword which you already have saved. But if the last searched keyword was different it will save bcause the algoritm will thinking you are trying another search.
 
-If you search using the same keyword for different times the algrith will incremet seaching count on the same keyword.
+If you search using the same keyword for different times the algrith will incremet seaching counter on the same keyword.
 
 ### Done!
 
