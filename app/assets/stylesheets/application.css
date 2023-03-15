@@ -37,20 +37,41 @@ a:hover {
   
 }
 
-.nav-item {
+label {
+  font-size: 18px;
+  color: #6b6d6d;
+}
+
+input {
+  outline: none;
+  padding: 7px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+
+}
+input[type="submit"] {
+  margin: 10px 0;
+}
+.nav-item-links {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-.nav-item .header-nav{
+.nav-item-links .header-nav{
   width: fit-content;
 }
 
 .articles {
   font-size: 18px;
   width: fit-content;
+}
 
+.sign-func {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .articles h1, .queries-header {
@@ -111,4 +132,30 @@ td {
 
 table tr:nth-child(odd){
   background-color: #d1d1d1;
+}
+
+.login-bar {
+  margin: 2rem 0;
+}
+
+.submit-btn {
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-transform: capitalize;
+  background-color: #7ebbb1;
+  color: rgb(93, 48, 197);
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: rgb(93, 48, 197);
+  color: #7ebbb1;
+}
+
+.log-link {
+  width: 100%;
 }

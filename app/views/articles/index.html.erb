@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <div class="nav-item">
+  <div class="nav-item-links">
     <%= link_to 'queries', "/queries", class: 'header-nav' %>
   </div>
 
@@ -14,8 +14,9 @@
     <%= render "articles", articles: @articles %>
   </div>
 <% else %>
-  <div class="nav-item">
+  <div class="nav-item-links">
     <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
     <%= link_to 'Register', new_user_registration_path, class: 'nav-link' %>
   </div>
 <% end %>
+
