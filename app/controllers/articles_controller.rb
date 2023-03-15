@@ -12,18 +12,18 @@ class ArticlesController < ApplicationController
   end
 
   def createSearch(query)
-    if Query.all.empty?
-      Query.create(query:, user_id: current_user.id, times: 1)
+    if Query.where(user_id: current_user.id).empty?
+      Query.create(query: query, user_id: current_user.id, times: 1)
     else
       lastquery = Query.where(user_id: current_user.id).order('updated_at DESC').first.query
-      if lastquery.include?(query) || query.include?(lastquery)
-        Query.find_by(query: lastquery, user_id: current_user.id).update(query:) if lastquery.length < query.length
+      if lastquery.start_with?(query) && lastquery.length < query.length
+        Query.find_by(query: lastquery, user_id: current_user.id).update(query:)
       else
-        attempt = Query.find_by(query:, user_id: current_user.id)
-        if attempt
+        attempt = Query.find_by(query: query, user_id: current_user.id)
+        if attempt!=nil && attempt.query.to_s == query
           attempt.update(times: attempt.times.to_i + 1)
         else
-          Query.create(query:, user_id: current_user.id, times: 1)
+        Query.create(query:, user_id: current_user.id, times: 1)
         end
       end
     end
