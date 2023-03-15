@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
     if Query.all.empty?
       Query.create(query:, user_id: current_user.id, times: 1)
     else
-      lastquery = Query.order('updated_at DESC').first.query
+      lastquery = Query.where(user_id: current_user.id).order('updated_at DESC').first.query
       if lastquery.include?(query) || query.include?(lastquery)
         Query.find_by(query: lastquery, user_id: current_user.id).update(query:) if lastquery.length < query.length
       else
