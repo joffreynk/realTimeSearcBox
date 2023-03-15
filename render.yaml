@@ -1,6 +1,6 @@
 databases:
   - name: search_engine
-    databaseName: search_engine_production
+    databaseName: search_engine_production_zmjn
     user: search_engine
 
 services:
