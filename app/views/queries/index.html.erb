@@ -3,11 +3,13 @@
     <%= link_to 'articles', "/", class: 'header-nav' %>
     </div>
 
-    <% if @queries.empty? %>
-      <p> OOps, you don&apos;t have query yet </p>
-    <% else %>
-      <%= render "queries", queries: @queries %>
-    <% end %>
+  <h1 class='queries-header'>articles</h1>
+
+  <% if @queries.empty? %>
+    <p> OOps, you don&apos;t have query yet </p>
+  <% else %>
+    <%= render "queries", queries: @queries %>
+  <% end %>
 <% else %>
   <div class="nav-item">
       <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>

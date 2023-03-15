@@ -1,3 +1,9 @@
 <%= turbo_frame_tag "queries" do %>
+  <table>
+  <tr>
+    <th>Query</th>
+    <th>queried times</th>
+  <tr>
   <%= render queries %>
+  </table>
 <% end %>

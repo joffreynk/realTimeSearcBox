@@ -49,15 +49,20 @@ a:hover {
 
 .articles {
   font-size: 18px;
+  width: fit-content;
 
 }
 
-.articles h1 {
+.articles h1, .queries-header {
   text-transform: capitalize;
   color: blue;
   font-size: 3rem;
   text-decoration: underline;
   text-decoration-color: #da7d7d;
+}
+
+.articles form {
+  margin-bottom: 0.75rem;
 }
 
 .articles form label{
@@ -72,5 +77,38 @@ a:hover {
   border-radius: 5px;
   padding: 5px;
 
+}
 
+.articles p{
+  margin: 0;
+  padding-top: 0.5rem;
+}
+
+.articles p:nth-child(even){
+  background-color: #e9eff0;
+}
+
+.articles p:nth-child(odd){
+  background-color: #d1d1d1;
+}
+
+table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: fit-content;
+  border: 1px solid lightgray;
+  margin-top: 15px;
+}
+
+table tr:nth-child(even){
+  background-color: #e9eff0;
+}
+
+td {
+  padding: 5px;
+}
+
+table tr:nth-child(odd){
+  background-color: #d1d1d1;
 }
