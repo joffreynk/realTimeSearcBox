@@ -1,0 +1,18 @@
+databases:
+  - name: search_engine
+    databaseName: search_engine_production
+    user: search_engine
+
+services:
+  - type: web
+    name: search_engine
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: search_engine
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: fals
