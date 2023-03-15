@@ -1,10 +1,10 @@
 AllCops:
   NewCops: enable
   Exclude:
-    - "db/**/*"
+    - "db/*/*"
     - "bin/*" 
     - "test/**/*"
-    - "config/**/*"
+    - "config/*/*"
     - "Guardfile"
     - "Rakefile"
     - "node_modules/**/*"
@@ -47,7 +47,7 @@ Layout/HashAlignment:
 Layout/ExtraSpacing:
   AllowForAlignment: false
 Layout/MultilineMethodCallIndentation:
-  Enabled: true
+  Enabled: false
   EnforcedStyle: indented
 Lint/RaiseException:
   Enabled: false
