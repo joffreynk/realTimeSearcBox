@@ -1,26 +1,22 @@
 <% if user_signed_in? %>
-<div class="nav-item">
+  <div class="nav-item">
+    <%= link_to 'queries', "/queries", class: 'header-nav' %>
+  </div>
 
-<%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+  <div class="articles">
+    <h1>articles
+    </h1>
+    <%= form_with(url: articles_path, method: "GET", data: { controller: "search", turbo_frame: "articles", turbo_action: "advance" }) do |form| %>
+      <%= form.label :query, "Search by Title:" %>
+      <%= form.text_field :query, data: { action: "input->search#searching" } %>
+    <% end %>
 
-</div>
-<%= link_to '/queries', "/queries", class: 'nav-link' %>
-
-<h1>articles</h1>
-<%= form_with(url: articles_path, method: "GET", data: { controller: "search", turbo_frame: "articles", turbo_action: "advance" }) do |form| %>
-  <%= form.label :query, "Search by title:" %>
-  <%= form.text_field :query, data: { action: "input->search#searching" } %>
-<% end %>
-
-<!-- Rendering the new partial here -->
-<%= render "articles", articles: @articles %>
-
-
+    <!-- Rendering the new partial here -->
+    <%= render "articles", articles: @articles %>
+  </div>
 <% else %>
-<div class="nav-item">
+  <div class="nav-item">
     <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
-</div>
-<div class="nav-item">
     <%= link_to 'Register', new_user_registration_path, class: 'nav-link' %>
-</div>
+  </div>
 <% end %>
