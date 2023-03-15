@@ -1,0 +1,18 @@
+<% if user_signed_in? %>
+<div class="nav-item">
+
+<%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+
+</div>
+
+
+<%= render "queries", queries: @queries %>
+
+<% else %>
+<div class="nav-item">
+    <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
+</div>
+<div class="nav-item">
+    <%= link_to 'Register', new_user_registration_path, class: 'nav-link' %>
+</div>
+<% end %>
