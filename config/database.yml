@@ -17,6 +17,4 @@ test:
 
 production:
   <<: *default
-  database: search_engine_production_zmjn
-  username: search_engine
   url: <%= ENv[DATABASE_URL]%>
