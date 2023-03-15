@@ -1,24 +1,83 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Recipe app
 
-Things you may want to cover:
+> RealTime search engine is a ruby on rails app that filter articles in articles list and display the filtered result. It saves all seaching keywords for data analysis. 
 
-* Ruby version
+## Built With
 
-* System dependencies
+- Ruby on Rails & postgreSQL.
+- Linters (Rubocop, Stylelint).
+- Git & GitHub.
 
-* Configuration
+## Getting Started
 
-* Database creation
+To get a local copy up and running follow these simple example steps.
 
-* Database initialization
+### Prerequisites
 
-* How to run the test suite
+    Git
+    PostgreSQL
+    Ruby on Rails 
 
-* Services (job queues, cache servers, search engines, etc.)
+### Setup
 
-* Deployment instructions
+    1. git clone https://github.com/JoffreyNK/realTimeSearcBox
+    2. cd realTimeSearcBox
+    3. bundle install
+    4. rails db:create
+    5. rails db:migrate
+    6. rails db:seed
 
-* ...
+you can add your testing data in ```db/seeds.rb``` file using the same partern used
+
+### Usage
+
+    1. rails server
+    2. xdg-open http://localhost:3000/
+
+
+when you the app loads you have to sign up using email and apssword to help the algoritm to track users. 
+
+### Testing cases:
+after login you are indicated on Ui where you can enter query keyword:
+
+having article title: ```What is a good car?```
+
+if you type ```what``` it saves it 
+
+when you continue and type ```what is a good``` it replaces the first one with the last searched
+
+if you type for the fird time ```what is a```. It will will save bcause the algoritm will think that youare rubbing a keyword which you already have. but if the last searched key was different it will save bcause the algoritm will thinking you are trying another search.
+
+If you search using the same keyword for different times the algrith will incremet seaching count on the same keyword.
+
+### Done!
+
+Ready to work?⛏️ You're all set to explore and change the repo locally (on your computer).
+
+## Author: 👤 **Joffrey**
+
+- GitHub: [@joffreynk](https://github.com/joffreynk)
+- Twitter: [@joffreynk](https://twitter.com/joffreynk)
+- LinkedIn: [joffreynk](https://linkedin.com/in/joffreynk)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- My fellow Micronauts.
+- Google and Stack Overflow.
+- Inspiration.
+- etc.
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.

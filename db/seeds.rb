@@ -8,6 +8,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+Article.create(title: 'What is a good car?')
 Article.create(title: 'How is emil hajric doing?')
 Article.create(title: 'Hello world how are you?')
 Article.create(title: 'Manuscript Organization Language')
