@@ -15,4 +15,4 @@ services:
           name: search_engine
           property: connectionString
       - key: RAILS_MASTER_KEY
-        sync: fals
+        sync: false
