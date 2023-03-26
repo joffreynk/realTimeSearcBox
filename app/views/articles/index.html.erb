@@ -4,7 +4,7 @@
   </div>
 
   <div class="articles">
-    <h1>articles</h1>
+    <h1>articles <%= @ip %> </h1>
     <%= form_with(url: articles_path, method: "GET", data: { controller: "search", turbo_frame: "articles", turbo_action: "advance" }) do |form| %>
       <%= form.label :query, "Search by Title:" %>
       <%= form.text_field :query, data: { action: "input->search#searching" } %>
@@ -13,10 +13,14 @@
     <!-- Rendering the new partial here -->
     <%= render "articles", articles: @articles %>
   </div>
+
+
 <% else %>
   <div class="nav-item-links">
     <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
     <%= link_to 'Register', new_user_registration_path, class: 'nav-link' %>
   </div>
+
 <% end %>
+
 

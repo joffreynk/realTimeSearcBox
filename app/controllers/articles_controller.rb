@@ -1,9 +1,15 @@
 # frozen_string_literal: true
+require 'net/http'
+require 'socket'
 
 class ArticlesController < ApplicationController
   def index
+    
+    ip_address = Socket.ip_address_list[1].ip_address
+    @ip = ip_address
     if params[:query].present?
       createSearch(params[:query.downcase].strip)
+
 
       @articles = Article.where('LOWER(title) like  ?', "%#{params[:query.downcase].strip}%")
     else
