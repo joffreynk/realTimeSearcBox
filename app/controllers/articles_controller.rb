@@ -1,12 +1,9 @@
 # frozen_string_literal: true
-require 'net/http'
 require 'socket'
 
 class ArticlesController < ApplicationController
   def index
     
-    ip_address = Socket.ip_address_list[1].ip_address
-    @ip = ip_address
     if params[:query].present?
       createSearch(params[:query.downcase].strip)
 
@@ -18,18 +15,19 @@ class ArticlesController < ApplicationController
   end
 
   def createSearch(query)
-    if Query.where(user_id: current_user.id).empty?
-      Query.create(query:, user_id: current_user.id, times: 1)
+    address = Socket.ip_address_list[1].ip_address
+    if Query.where(userip: address).empty?
+      Query.create(query:, userip: address, times: 1)
     else
-      lastquery = Query.where(user_id: current_user.id).order('updated_at DESC').first.query
+      lastquery = Query.where(userip: address).order('updated_at DESC').first.query
       if lastquery.start_with?(query) && lastquery.length < query.length
-        Query.find_by(query: lastquery, user_id: current_user.id).update(query:)
+        Query.find_by(query: lastquery, userip: address).update(query:)
       else
-        attempt = Query.find_by(query:, user_id: current_user.id)
+        attempt = Query.find_by(query:, userip: address)
         if !attempt.nil? && attempt.query.to_s == query
           attempt.update(times: attempt.times.to_i + 1)
         else
-          Query.create(query:, user_id: current_user.id, times: 1)
+          Query.create(query:, userip: address, times: 1)
         end
       end
     end

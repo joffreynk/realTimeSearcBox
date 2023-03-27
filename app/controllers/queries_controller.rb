@@ -1,7 +1,9 @@
 # frozen_string_literal: true
+require 'socket'
 
 class QueriesController < ApplicationController
   def index
-    @queries = Query.where(user_id: current_user.id).order('times DESC')
+    address = Socket.ip_address_list[1].ip_address
+    @queries = Query.where(userip: userip).order('times DESC')
   end
 end
