@@ -1,20 +1,11 @@
-<% if user_signed_in? %>
-    <div class="nav-item">
-    <%= link_to 'articles', "/", class: 'header-nav' %>
-    </div>
+<div class="nav-item">
+  <%= link_to 'articles', "/", class: 'header-nav' %>
+  </div>
 
-  <h1 class='queries-header'>Queries</h1>
+<h1 class='queries-header'>Queries</h1>
 
-  <% if @queries.empty? %>
-    <p> OOps, you don&apos;t have query yet </p>
-  <% else %>
-    <%= render "queries", queries: @queries %>
-  <% end %>
+<% if @queries.empty? %>
+  <p> OOps, you don&apos;t have query yet </p>
 <% else %>
-  <div class="nav-item">
-      <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
-  </div>
-  <div class="nav-item">
-      <%= link_to 'Register', new_user_registration_path, class: 'nav-link' %>
-  </div>
+  <%= render "queries", queries: @queries %>
 <% end %>
