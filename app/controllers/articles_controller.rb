@@ -36,5 +36,4 @@ class ArticlesController < ApplicationController
     end
   end
 
-  search = Query.order('updated_at DESC')
 end
