@@ -2,19 +2,21 @@
 default: &default
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
 
 development:
   <<: *default
-  database: search_engin_dev
+  database: search_engine_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: search_engin_test
+  database: search_engine_test
 
 production:
   <<: *default
-  database: search_engin_production
+  url: <%= ENV['DATABASE_URL']%>
+  database: search_engine_production
+  username: search_engine
+  password: <%= ENV['XGs8D6csJNrTBfuwgwMQj44WqwTroJLf'] %>
