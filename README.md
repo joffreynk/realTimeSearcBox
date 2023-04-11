@@ -17,6 +17,7 @@ To get a local copy up and running follow these simple example steps.
 
     Git
     PostgreSQL
+    Ruby 3.2.2
     Ruby on Rails 
 
 ### Setup
